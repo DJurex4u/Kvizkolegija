@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kviz kolegija</string>
+    <string name="imeKolegija">Osnove razvoja web i mobilnih aplikacija</string>
+    <string name="Quiz1">Laboratorijska vježba 1</string>
+    <string name="Quiz2">Laboratorijska vježba 2</string>
+    <string name="Quiz3">Laboratorijska vježba 3</string>
+    <string name="Quiz4">Laboratorijska vježba 4</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
