@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
 
 
@@ -15,14 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViews();
+          MenuFragment Menu = new MenuFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, Menu).commit();
 
-        /*ovo je staro, sad pokušavam preko Pagera nešto*/
-          /*MenuFragment Menu = new MenuFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container, Menu).commit();*/
+
     }
 
-    private void initViews(){
-        mViewPager = findViewById(R.id.viewPager);
-    }
+
 }

@@ -24,6 +24,8 @@ public class StartQuizFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_start_quiz, container, false);
+
+
     }
 
 }
