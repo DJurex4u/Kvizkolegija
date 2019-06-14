@@ -32,7 +32,6 @@ public class MenuFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
@@ -51,8 +50,13 @@ public class MenuFragment extends Fragment{
         quiz1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 StartQuizFragment StartQuiz = new StartQuizFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("quiz",1);
+                StartQuiz.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container, StartQuiz).commit();
+
             }
         });
 
@@ -60,6 +64,9 @@ public class MenuFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 StartQuizFragment StartQuiz = new StartQuizFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("quiz",2);
+                StartQuiz.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container, StartQuiz).commit();
             }
         });
@@ -68,6 +75,9 @@ public class MenuFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 StartQuizFragment StartQuiz = new StartQuizFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("quiz",3);
+                StartQuiz.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container, StartQuiz).commit();
             }
         });
@@ -78,6 +88,9 @@ public class MenuFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 StartQuizFragment StartQuiz = new StartQuizFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("quiz",4);
+                StartQuiz.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.container, StartQuiz).commit();
             }
         });
