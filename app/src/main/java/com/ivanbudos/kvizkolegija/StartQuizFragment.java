@@ -39,6 +39,7 @@ private RadioButton rButton2;
 private RadioButton rButton3;
 private RadioButton rButton4;
 int myInt;
+public GenerateQuiz mquiz;
 
 private ColorStateList textColorDefaultRb;
 private int questionCounter = 0;
@@ -71,41 +72,39 @@ private boolean answered;
         rButton2 = view.findViewById(R.id.radioButton2);
         rButton3 = view.findViewById(R.id.radioButton3);
         rButton4 = view.findViewById(R.id.radioButton4);
+        //RadioButton sadf = view.findViewById(radioGroup.getCheckedRadioButtonId());
 
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
              myInt = bundle.getInt("quiz");
         }
-
-        GenerateQuiz mquiz = new GenerateQuiz(myInt);
+        mquiz = new GenerateQuiz(myInt);
         textColorDefaultRb = rButton1.getTextColors();
         questionCountTotal = mquiz.getQuiz().length;
-        //mquiz.ShuffleQuiz();            // KASNIJE PROBAJ SHUFFLEAT DA VIDIŠ JEL RADI
+        //mquiz.ShuffleQuiz();// KASNIJE PROBAJ SHUFFLEAT DA VIDIŠ JEL RADI
 
 
 
         //mquiz.getQuiz()[questionCounter].getQuestion();
         //questionTextView.setText(mquiz.getQuiz()[0].getQuestion());
-        ShowNextQuestion(mquiz);
+        ShowNextQuestion();
 
         confirmAnswerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!answered){
                     if ((rButton1.isChecked())||(rButton2.isChecked())||(rButton3.isChecked())||(rButton4.isChecked())){
-                        ChechAnswer();
-                    } else {
-                                                        /*PROBLEEEEM */
+                        CheckAnswer();
+                    } else {                                                       /*PROBLEEEEM */
                         Toast.makeText(getActivity(), "Odaberite jedan od ponuđenih odgovora.", Toast.LENGTH_SHORT).show();
                     }
-
-                }
+                } else { ShowNextQuestion();}
             }
         });
-    }
+    }//izvan Created:
 
-    private void ShowNextQuestion(GenerateQuiz mquiz){
+    private void ShowNextQuestion(){
         rButton1.setTextColor(textColorDefaultRb);
         rButton2.setTextColor(textColorDefaultRb);
         rButton3.setTextColor(textColorDefaultRb);
@@ -126,13 +125,30 @@ private boolean answered;
             countDownTextView.setText("Pitanje: " +questionCounter +"/"+ questionCountTotal );
             answered = false;
             confirmAnswerButton.setText("Potvrdi");
-        } else finishQuiz();
+        } else {
+            finishQuiz();
+        }
+
+
+    }
+
+
+
+    private void CheckAnswer(){
+        answered = true;
+                            // zasto se crveni??! :(
+        RadioButton rbSelected = findViewById(radioGroup.getCheckedRadioButtonId());
+        int answerNum = radioGroup.indexOfChild(rbSelected);
+
+
+
+
+
+
     }
 
     private void finishQuiz(){
-
     }
 
-    private void ChechAnswer(){}
 
 }
