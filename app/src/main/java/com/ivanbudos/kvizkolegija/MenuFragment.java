@@ -82,8 +82,6 @@ public class MenuFragment extends Fragment{
             }
         });
 
-
-
         quiz4Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

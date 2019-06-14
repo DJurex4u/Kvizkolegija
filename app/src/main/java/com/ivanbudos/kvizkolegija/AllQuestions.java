@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public final class AllQuestions {
 
-    private AllQuestions(){}
+    private AllQuestions(){} //NE MOŽE SE INSTANCIRATI HEHE
 
     public static String[] questionsQuiz1 = {
             "HTML je kratica za...",

@@ -13,7 +13,6 @@ public class QuestionModel {
         this.rightAnswer = rightAnswer;
     }
 
-
     public String getQuestion() {
         return question;
     }
