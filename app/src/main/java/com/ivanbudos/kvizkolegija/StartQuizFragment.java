@@ -14,10 +14,12 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Delayed;
 
 
@@ -63,7 +65,7 @@ private boolean answered;
         questionTextView = view.findViewById(R.id.textViewQuestion);
         scoreTextView = view.findViewById(R.id.textViewScore);
         confirmAnswerButton = view.findViewById(R.id.buttonConfirmNext);
-        countDownTextView = view.findViewById(R.id.textViewCountdown);
+        countDownTextView = view.findViewById(R.id.textViewQuestionCount);
         radioGroup = view.findViewById(R.id.radioGroup);
         rButton1 = view.findViewById(R.id.radioButton1);
         rButton2 = view.findViewById(R.id.radioButton2);
@@ -86,6 +88,21 @@ private boolean answered;
         //mquiz.getQuiz()[questionCounter].getQuestion();
         //questionTextView.setText(mquiz.getQuiz()[0].getQuestion());
         ShowNextQuestion(mquiz);
+
+        confirmAnswerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!answered){
+                    if ((rButton1.isChecked())||(rButton2.isChecked())||(rButton3.isChecked())||(rButton4.isChecked())){
+                        ChechAnswer();
+                    } else {
+                                                        /*PROBLEEEEM */
+                        Toast.makeText(getActivity(), "Odaberite jedan od ponuđenih odgovora.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        });
     }
 
     private void ShowNextQuestion(GenerateQuiz mquiz){
@@ -104,7 +121,18 @@ private boolean answered;
             rButton3.setText(currentQuestion.getPosibleAnswers()[2]);
             rButton4.setText(currentQuestion.getPosibleAnswers()[3]);
             questionTextView.setText(currentQuestion.getQuestion());
-        }
+
+            questionCounter ++;
+            countDownTextView.setText("Pitanje: " +questionCounter +"/"+ questionCountTotal );
+            answered = false;
+            confirmAnswerButton.setText("Potvrdi");
+        } else finishQuiz();
     }
+
+    private void finishQuiz(){
+
+    }
+
+    private void ChechAnswer(){}
 
 }
