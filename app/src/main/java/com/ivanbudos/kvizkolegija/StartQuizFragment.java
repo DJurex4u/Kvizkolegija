@@ -2,6 +2,7 @@ package com.ivanbudos.kvizkolegija;
 
 
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -112,9 +113,9 @@ private boolean answered;
         radioGroup.clearCheck();
 
 
-        if (questionCounter < questionCountTotal){
+        if (questionCounter < questionCountTotal ){
 
-            currentQuestion = mquiz.getQuiz()[0];
+            currentQuestion = mquiz.getQuiz()[questionCounter];
             rButton1.setText(currentQuestion.getPosibleAnswers()[0]);
             rButton2.setText(currentQuestion.getPosibleAnswers()[1]);
             rButton3.setText(currentQuestion.getPosibleAnswers()[2]);
@@ -136,19 +137,57 @@ private boolean answered;
 
     private void CheckAnswer(){
         answered = true;
-                            // zasto se crveni??! :(
-        RadioButton rbSelected = findViewById(radioGroup.getCheckedRadioButtonId());
-        int answerNum = radioGroup.indexOfChild(rbSelected);
+                            // jeeej :D napokon valja
+        RadioButton rbSelected = getView().findViewById(radioGroup.getCheckedRadioButtonId());
+
+        int answerNum = radioGroup.indexOfChild(rbSelected) +1;
+        //samoprovjera pokazuje li dobro
+        //Toast.makeText(getActivity(), String.valueOf(answerNum ), Toast.LENGTH_SHORT).show();
+
+        if (answerNum == currentQuestion.getRightAnswer()){
+            score++;
+            scoreTextView.setText("Score: "+score);
+        }
+        ShowSolution();
+    }
+
+    private void ShowSolution(){
+
+        rButton1.setTextColor(Color.RED);
+        rButton2.setTextColor(Color.RED);
+        rButton3.setTextColor(Color.RED);
+        rButton4.setTextColor(Color.RED);
 
 
+        switch (currentQuestion.getRightAnswer()){
+            case 1:
+                rButton1.setTextColor(Color.GREEN);
+                questionTextView.setText("Odgovor 1 je točan!");
+                break;
+            case 2:
+                rButton2.setTextColor(Color.GREEN);
+                questionTextView.setText("Odgovor 2 je točan!");
+                break;
+            case 3:
+                rButton3.setTextColor(Color.GREEN);
+                questionTextView.setText("Odgovor 3 je točan!");
+                break;
+            case 4:
+                rButton4.setTextColor(Color.GREEN);
+                questionTextView.setText("Odgovor 4 je točan!");
+                break;
+        }
 
-
-
+        if (questionCounter < questionCountTotal){
+            confirmAnswerButton.setText("Sljedeće pitanje");
+        }else{
+            confirmAnswerButton.setText("Završi kviz");
+        }
 
     }
 
     private void finishQuiz(){
+        getActivity().finish();
     }
-
 
 }

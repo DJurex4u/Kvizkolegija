@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
           MenuFragment Menu = new MenuFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.container, Menu).commit();
-
     }
 
 

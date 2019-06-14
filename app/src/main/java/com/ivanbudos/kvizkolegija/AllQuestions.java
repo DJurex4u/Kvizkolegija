@@ -9,58 +9,58 @@ public final class AllQuestions {
     private AllQuestions(){}
 
     public static String[] questionsQuiz1 = {
-            "Odgovor na k1p1 je broj dva?",
-            "Odgovor na k1p2 je broj 3",
-            "Odgovor na k1p3 je 4",
-            "odgf na k1p3 je 1"};
+            "HTML je kratica za...",
+            "Odaberi string s najvećim fontom.",
+            "HTML je...",
+            "Dvije važne kategorije elemenata u HTMLu?"};
 
     public static String[] questionsQuiz2 = {
-            "1Pitanje k2 = 2",
-            "2pitanje k2 =3",
-            "3pitanje k2 = 4",
-            "4pitanje k2 = 1"
+            "Što predstavlja URL kratica?",
+            "Putanja može biti Apsolutna i ...",
+            "Što omogućava povezivanje dokumenta i resursa?",
+            "Kada postoji potreba da se neki sadžaj proteše kroz više redova/ stupaca, koristimo:"
     };
 
     public static String[] questionsQuiz3 = {
-            "1Pitanje k23 = 2",
-            "2pitanje k23 =3",
-            "3pitanje k2 3= 4",
-            "4pitanje k23 = 1"
+            "Koje je osnovna klasa za UI kontrolu android aplikacije?",
+            "Za UI kontrolu tekstualnog sadržaja koristimo...",
+            "Wrap content ili Match...",
+            "ActivitiMain.class svoj izgled ima definira u..."
     };
 
     public static String[] questionsQuiz4 = {
-            "1Pitanje k24 = 2",
-            "2pitanje k24 =3",
-            "3pitanje k2 4= 4",
-            "4pitanje k2 4= 1"
+            "Što koristimo za prikazivanje veće količine podataka u obliku liste koju je moguće pomicati gore/dolje?",
+            "Prije dodavanja RecyclerViewa potrebno je komponentu u projekt dodati preko...",
+            "RecyclerView komponentu koja se koristi za prikaz podataka potrebno je dodati u...",
+            "Što je korišteno u ovom projektu?"
     };
 
     public static String[][] posibleAnswersQuiz1 = {
-            {"111Možda ovo","12moždaoo","13a možd","14možd"},
-            {"121sdf","122dsfds","123fdsf","123dsaf"},
-            {"131cadsc","132adsca","133cds","134daf"},
-            {"141sdf","142sdaf","143cdsafc","144dcsaf"}
+            {"Hyper Tuner Mama Ljama","Hyper Text Markup Language","Hype Toons Microsoftz Life","Hippo Tone Micro Loop"},
+            {"<h3>String<h3>","<h3>Hello<h2>","<h1>Text<h1>","<h2>Title<h2>"},
+            {"Programski jezik","Znakovni jezik","Nije jezik","Opisni jezik"},
+            {"linijski i blok","blok i radni","linijski i kućanski","radni i sporedni"}
     };
 
     public static String[][] posibleAnswersQuiz2 = {
-            {"211Možda ovo","212moždaoo","213a možd","214možd"},
-            {"221sdf","222dsfds","223fdsf","224dsaf"},
-            {"231cadsc","232adsca","233cds","234daf"},
-            {"241sdf","242sdaf","243cdsafc","244dcsaf"}
+            {"Ultra Rapid Lube","Uniform Resource Locator","Ultron tock Line","Upper Resource Look"},
+            {"Neapsolutna","Relatistična","Relativna","Direktna"},
+            {"Autoputi","Dretve","Linkovi","Hiperveze"},
+            {"rowspan i colspan","throughtrow i throughtcol","rowmerge i colmerge","row i collumn"}
     };
 
     public static String[][] posibleAnswersQuiz3 = {
-            {"311Možda ovo","312moždaoo","313a možd","314možd"},
-            {"321sdf","322dsfds","323fdsf","324dsaf"},
-            {"331cadsc","332adsca","333cds","334daf"},
-            {"341sdf","342sdaf","343cdsafc","344dcsaf"}
+            {"Layout","View","XML","Ekran"},
+            {"TextEditor","NewText","TextView","Ništa od navedenog"},
+            {"MatchScreen","MatchPrevious","Match1","MatchParent"},
+            {"activity_main.xml fileu","activity_main.css fileu","u sebi","colors.xml"}
     };
 
    public static String[][] posibleAnswersQuiz4 = {
-            {"411Možda ovo","412moždaoo","413a možd","414možd"},
-            {"421sdf","422dsfds","423fdsf","424dsaf"},
-            {"431cadsc","432adsca","433cds","434daf"},
-            {"441sdf","442sdaf","443cdsafc","444dcsaf"}
+            {"ViewHolder","RecyclerView","Fragmente","To je nemoguće izvesti"},
+            {"Skripte","Dodatnog programa","Gradle skripte","Linka"},
+            {"fragment1.xml","Fragment1.class","MainActivity.class","activity_main.xml"},
+            {"Fragmenti","Više activitya","RecyclerView","HTML"}
     };
 
     public static int[] rightAnswersQuiz1 = {2,3,4,1};

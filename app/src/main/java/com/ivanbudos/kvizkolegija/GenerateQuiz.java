@@ -30,12 +30,11 @@ public class GenerateQuiz {
   private void GeneratorQuiz1(){
       int max = AllQuestions.questionsQuiz1.length;
       quiz = new QuestionModel[max];
-      for(int i = 0; i < max -1 ; i++){
+      for(int i = 0; i < max; i++){
 
           String question = (AllQuestions.questionsQuiz1[i]);
           int rightAnswer = (AllQuestions.rightAnswersQuiz1[i]);
           String[] possibleAnswers = (AllQuestions.posibleAnswersQuiz1[i]);
-
           quiz[i] = new QuestionModel(question, possibleAnswers, rightAnswer);
       }
 
@@ -44,7 +43,7 @@ public class GenerateQuiz {
     private void GeneratorQuiz2() {
         int max = AllQuestions.questionsQuiz2.length;
         quiz = new QuestionModel[max];
-        for (int i = 0; i < max -1; i++) {
+        for (int i = 0; i < max; i++) {
             String question = (AllQuestions.questionsQuiz2[i]);
             int rightAnswer = (AllQuestions.rightAnswersQuiz2[i]);
             String[] possibleAnswers = (AllQuestions.posibleAnswersQuiz2[i]);
@@ -56,7 +55,7 @@ public class GenerateQuiz {
     private void GeneratorQuiz3() {
         int max = AllQuestions.questionsQuiz3.length;
         quiz = new QuestionModel[max];
-        for (int i = 0; i < max -1; i++) {
+        for (int i = 0; i < max; i++) {
             String question = (AllQuestions.questionsQuiz3[i]);
             int rightAnswer = (AllQuestions.rightAnswersQuiz3[i]);
             String[] possibleAnswers = (AllQuestions.posibleAnswersQuiz3[i]);
@@ -67,7 +66,7 @@ public class GenerateQuiz {
     private void GeneratorQuiz4() {
         int max = AllQuestions.questionsQuiz4.length;
         quiz = new QuestionModel[max];
-        for (int i = 0; i < max -1; i++) {
+        for (int i = 0; i < max; i++) {
             String question = (AllQuestions.questionsQuiz4[i]);
             int rightAnswer = (AllQuestions.rightAnswersQuiz4[i]);
             String[] possibleAnswers = (AllQuestions.posibleAnswersQuiz4[i]);
