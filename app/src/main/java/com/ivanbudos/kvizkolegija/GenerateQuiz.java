@@ -1,5 +1,9 @@
 package com.ivanbudos.kvizkolegija;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class GenerateQuiz {
     /*public static  GenerateQuiz1();*/
   private QuestionModel[] quiz;
@@ -73,5 +77,12 @@ public class GenerateQuiz {
 
     public QuestionModel[] getQuiz() {
         return quiz;
+    }
+
+    public QuestionModel[] ShuffleQuiz() {
+        List<QuestionModel> quizList = Arrays.asList(this.quiz);
+        Collections.shuffle(quizList);
+        this.quiz = quizList.toArray(new QuestionModel[quizList.size()]);
+        return this.quiz;
     }
 }

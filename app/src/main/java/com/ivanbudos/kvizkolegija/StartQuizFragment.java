@@ -1,6 +1,7 @@
 package com.ivanbudos.kvizkolegija;
 
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,8 +11,13 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.Delayed;
 
 
@@ -24,9 +30,21 @@ public class StartQuizFragment extends Fragment {
 private TextView questionTextView;
 private TextView scoreTextView;
 private Button confirmAnswerButton;
+private TextView countDownTextView;
+private RadioGroup radioGroup;
+private RadioButton rButton1;
+private RadioButton rButton2;
+private RadioButton rButton3;
+private RadioButton rButton4;
 int myInt;
 
+private ColorStateList textColorDefaultRb;
+private int questionCounter = 0;
+private int questionCountTotal;
+private QuestionModel currentQuestion;
 
+private int score;
+private boolean answered;
     public StartQuizFragment() {
         // Required empty public constructor
     }
@@ -45,24 +63,48 @@ int myInt;
         questionTextView = view.findViewById(R.id.textViewQuestion);
         scoreTextView = view.findViewById(R.id.textViewScore);
         confirmAnswerButton = view.findViewById(R.id.buttonConfirmNext);
+        countDownTextView = view.findViewById(R.id.textViewCountdown);
+        radioGroup = view.findViewById(R.id.radioGroup);
+        rButton1 = view.findViewById(R.id.radioButton1);
+        rButton2 = view.findViewById(R.id.radioButton2);
+        rButton3 = view.findViewById(R.id.radioButton3);
+        rButton4 = view.findViewById(R.id.radioButton4);
 
 
-
-        /*GenerateQuiz mquiz = new GenerateQuiz(myInt);*/
         Bundle bundle = this.getArguments();
         if (bundle != null) {
              myInt = bundle.getInt("quiz");
         }
 
         GenerateQuiz mquiz = new GenerateQuiz(myInt);
-        //mquiz.getQuiz()[0].getQuestion();
-       questionTextView.setText(mquiz.getQuiz()[0].getQuestion());
+        textColorDefaultRb = rButton1.getTextColors();
+        questionCountTotal = mquiz.getQuiz().length;
+        //mquiz.ShuffleQuiz();            // KASNIJE PROBAJ SHUFFLEAT DA VIDIŠ JEL RADI
 
 
 
-
+        //mquiz.getQuiz()[questionCounter].getQuestion();
+        //questionTextView.setText(mquiz.getQuiz()[0].getQuestion());
+        ShowNextQuestion(mquiz);
     }
 
+    private void ShowNextQuestion(GenerateQuiz mquiz){
+        rButton1.setTextColor(textColorDefaultRb);
+        rButton2.setTextColor(textColorDefaultRb);
+        rButton3.setTextColor(textColorDefaultRb);
+        rButton4.setTextColor(textColorDefaultRb);
+        radioGroup.clearCheck();
 
+
+        if (questionCounter < questionCountTotal){
+
+            currentQuestion = mquiz.getQuiz()[0];
+            rButton1.setText(currentQuestion.getPosibleAnswers()[0]);
+            rButton2.setText(currentQuestion.getPosibleAnswers()[1]);
+            rButton3.setText(currentQuestion.getPosibleAnswers()[2]);
+            rButton4.setText(currentQuestion.getPosibleAnswers()[3]);
+            questionTextView.setText(currentQuestion.getQuestion());
+        }
+    }
 
 }
